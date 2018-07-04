@@ -1,0 +1,6 @@
+[submodule "smartsense_ws/src/zed-ros-wrapper"]
+	path = smartsense_ws/src/zed-ros-wrapper
+	url = https://github.com/stereolabs/zed-ros-wrapper.git
+[submodule "smartsense_ws/src/usb_cam"]
+	path = smartsense_ws/src/usb_cam
+	url = https://github.com/ros-drivers/usb_cam.git
