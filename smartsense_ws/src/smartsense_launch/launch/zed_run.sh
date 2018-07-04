@@ -1,1 +1,1 @@
-roslaunch zed_wrapper zed.launch | rosbag record -a
+roslaunch zed_wrapper zed.launch | rosbag record -O
