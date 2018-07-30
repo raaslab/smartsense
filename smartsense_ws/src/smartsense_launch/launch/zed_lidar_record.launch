@@ -1,0 +1,18 @@
+<launch>
+
+	<!-- NODES -->
+	<include file="$(find smartsense_launch)/launch/lidar.launch" />
+	<include file="$(find smartsense_launch)/launch/zed.launch" />
+
+	<!-- ROSBAG -->
+	<include file="$(find smartsense_launch)/launch/record.launch">
+		<arg name="record_zed_lidar" value="true" />
+	</include>
+
+	<!-- RVIZ -->
+	<include file="$(find smartsense_launch)/launch/rviz.launch">
+		<arg name="rviz" value="true" />
+		<arg name="rviz_file" value="$(find smartsense_launch)/launch/zed.rviz" />
+	</include>
+
+</launch>

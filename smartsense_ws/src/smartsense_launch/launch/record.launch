@@ -1,0 +1,18 @@
+<launch>
+	<!-- Make sure only one of the following are true -->
+	<!-- otherwise the data will be stored in more than one bag file -->
+	<arg name="record_zed" default="false" />
+	<arg name="record_lidar" default="false" />
+	<arg name="record_zed_lidar" default="false" />
+	<arg name="record_all" default="false" />
+
+	<node pkg="rosbag" type="record" name="rosbag_zed" args="record /zed/left/camera_info_raw /zed/right/camera_info_raw /zed/left/image_raw_color/compressed /zed/right/image_raw_color/compressed /zed/odom /zed/point_cloud/cloud_registered /rosout /tf -o /media/nvidia/07bc9976-1c58-42ee-aa74-ce46823142d83/" if="$(arg record_zed)" />
+
+	<node pkg="rosbag" type="record" name="rosbag_lidar" args="record /laser_status /scan /rosout /tf -o /media/nvidia/07bc9976-1c58-42ee-aa74-ce46823142d83/" if="$(arg record_lidar)" />
+
+
+	<node pkg="rosbag" type="record" name="rosbag_zed_lidar" args="record /zed/left/camera_info_raw /zed/right/camera_info_raw /zed/left/image_raw_color/compressed /zed/right/image_raw_color/compressed /zed/odom /zed/point_cloud/cloud_registered /laser_status /scan /rosout /tf -o /media/nvidia/07bc9976-1c58-42ee-aa74-ce46823142d83/" if="$(arg record_zed_lidar)" />
+
+	<node pkg="rosbag" type="record" name="rosbag_all" args="record -a -o /media/nvidia/07bc9976-1c58-42ee-aa74-ce46823142d83/" if="$(arg record_all)" />
+
+</launch>
